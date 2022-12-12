@@ -1,0 +1,33 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E303" />
+          <option value="E306" />
+          <option value="W292" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="id" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="fixture.group.GroupHelper.return_to_groups_page" />
+          <option value="fixture.contact.ContactHelper.return_to_groups_page" />
+          <option value="fixture.contact.ContactHelper.assertRegexpMatches" />
+          <option value="fixture.contact.ContactHelper.close_alert_and_get_its_text" />
+          <option value="fixture.contact.ContactHelper.contact" />
+          <option value="model.contact.fill_form" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
