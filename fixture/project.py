@@ -9,20 +9,27 @@ class ProjectHelper:
     def go_to_manage_projects(self):
         wd = self.app.wd
         # go to manage page
-        wd.get("http://localhost/mantisbt-1.2.20/manage_overview_page.php")
         wd.find_element_by_link_text("Manage").click()
         # go to manage project page
         wd.find_element_by_link_text("Manage Projects").click()
 
     def create_new_project(self, project_name):
         wd = self.app.wd
+        self.go_to_manage_projects()
         wd.find_element_by_xpath("//input[@value='Create New Project']").click()
         wd.find_element_by_name("name").click()
         wd.find_element_by_name("name").clear()
         wd.find_element_by_name("name").send_keys(project_name)
         wd.find_element_by_xpath("//input[@value='Add Project']").click()
+        self.project_cache = None
 
-    project_cache = None
+    def delete_project(self, project):
+        wd = self.app.wd
+        self.go_to_manage_projects()
+        wd.find_element_by_link_text(project.project_name).click()
+        wd.find_element_by_xpath("//input[@value='Delete Project']").click()
+        wd.find_element_by_xpath("//input[@value='Delete Project']").click()
+        self.project_cache = None
 
     def get_project_list(self):
         wd = self.app.wd

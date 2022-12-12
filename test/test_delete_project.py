@@ -9,12 +9,12 @@ def random_string(max_len):
 
 
 def test_add_project(app):
-    project = Project(project_name=random_string(5), project_description=random_string(10))
     app.session.login("administrator", "root")
+    if len(app.project.get_project_list()) == 0:
+        app.project.create_new_project(Project(project_name="projects_new"))
     old_projects = app.project.get_project_list()
-    app.project.create_new_project(project.project_name)
-    app.project.go_to_manage_projects()
+    project = random.choice(old_projects)
+    app.project.delete_project(project)
     new_projects = app.project.get_project_list()
-    assert len(old_projects) + 1 == len(new_projects)
-    old_projects.append(project)
+    old_projects.remove(project)
     assert sorted(new_projects, key=Project.sort_by_name) == sorted(old_projects, key=Project.sort_by_name)
