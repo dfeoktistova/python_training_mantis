@@ -12,7 +12,8 @@ class Project:
         return "%s:%s" % (self.project_id, self.project_name)
 
     def __eq__(self, other):
-        return (self.project_id is None or other.project_id is None or self.project_id == other.project_id) and self.project_name == other.project_name
+        return (self.project_id is None or other.project_id is None or self.project_id == other.project_id)\
+               and self.project_name == other.project_name
 
     def sort_by_name(self):
         if self.project_name:

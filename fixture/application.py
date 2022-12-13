@@ -1,6 +1,10 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.project import ProjectHelper
+from fixture.james import JamesHelper
+from fixture.signup import SignupHelper
+from fixture.mail import MailHelper
+from fixture.soap import SoapHelper
 
 
 class Application:
@@ -15,9 +19,15 @@ class Application:
         else:
             raise ValueError("Unrecognised browser %s" & browser)
         # self.wd.implicitly_wait(5)
-        self.base_url = base_url
-        self.project = ProjectHelper(self)
         self.session = SessionHelper(self)
+        self.project = ProjectHelper(self)
+        self.james = JamesHelper(self)
+        self.signup = SignupHelper(self)
+        self.mail = MailHelper(self)
+        self.soap = SoapHelper(self)
+        self.config = config
+        self.base_url = config['web']['baseUrl']
+        self.soap_url = config['web']['soapUrl']
 
 
     def is_valid(self):
