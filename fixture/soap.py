@@ -17,10 +17,8 @@ class SoapHelper:
             return False
 
     def get_project_list(self):
-        username = self.app.config['webadmin']['username']
-        password = self.app.config['webadmin']['password']
         client = Client(self.app.soap_url)
-        project_list = []
-        for project in client.service.mc_projects_get_user_accessible(username, password):
-            project_list.append(Project(name=project.name, id=project.id))
-        return
+        project_list = client.service.mc_projects_get_user_accessible(self.app.credentials.login,
+                                                                      self.app.credentials.password)
+            #project_list.append(self.app.credentials.login, self.app.credentials.password)
+        return project_list

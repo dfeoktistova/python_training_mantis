@@ -9,7 +9,6 @@ def random_string(max_len):
 
 
 def test_add_project(app):
-    app.session.login("administrator", "root")
     if len(app.project.get_project_list()) == 0:
         app.project.create_new_project(Project(project_name="projects_new"))
     old_projects = app.project.get_project_list()

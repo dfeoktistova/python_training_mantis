@@ -9,8 +9,8 @@ def random_string(max_len):
 
 
 def test_add_project(app):
-    project = Project(project_name=random_string(5), project_description=random_string(10))
-    app.session.login("administrator", "root")
+    project = Project(name=random_string(5), description=random_string(10))
+    #app.session.login("administrator", "root")
     old_projects = app.project.get_project_list()
     app.project.create_new_project(project.project_name)
     app.project.go_to_manage_projects()

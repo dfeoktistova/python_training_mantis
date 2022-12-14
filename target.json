@@ -1,6 +1,7 @@
 {
  "web": {
-  "baseUrl": "http://localhost/mantisbt-1.2.20/"
+  "baseUrl": "http://localhost/mantisbt-1.2.20/",
+  "soapUrl": "http://localhost:8080/mantisbt-1.2.20/api/soap/mantisconnect.php?wsdl"
  },
  "webadmin": {
   "username": "administrator",
