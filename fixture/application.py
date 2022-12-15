@@ -5,7 +5,6 @@ from fixture.james import JamesHelper
 from fixture.signup import SignupHelper
 from fixture.mail import MailHelper
 from fixture.soap import SoapHelper
-from fixture.session import SessionHelper
 
 
 class Application:
