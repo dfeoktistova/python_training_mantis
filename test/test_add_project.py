@@ -10,9 +10,8 @@ def random_string(max_len):
 
 def test_add_project(app):
     project = Project(name=random_string(5), description=random_string(10))
-    #app.session.login("administrator", "root")
     old_projects = app.project.get_project_list()
-    app.project.create_new_project(project.project_name)
+    app.project.create_new_project(project.name)
     app.project.go_to_manage_projects()
     new_projects = app.project.get_project_list()
     assert len(old_projects) + 1 == len(new_projects)

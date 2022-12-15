@@ -10,7 +10,7 @@ def random_string(max_len):
 
 def test_add_project(app):
     if len(app.project.get_project_list()) == 0:
-        app.project.create_new_project(Project(project_name="projects_new"))
+        app.project.create_new_project(Project(name="projects_new"))
     old_projects = app.project.get_project_list()
     project = random.choice(old_projects)
     app.project.delete_project(project)
